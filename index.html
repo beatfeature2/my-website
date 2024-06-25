@@ -29,9 +29,31 @@
       }
     }();
     drift.SNIPPET_VERSION = '0.3.1';
-    drift.load('6icw4aurbfi8');
+    drift.load('your_drift_id');
+    
+    // Drift customization
+    drift.on('ready', function(api) {
+      // Show the widget
+      api.widget.show();
+      
+      // Center the widget
+      var widgetContainer = document.querySelector('.drift-widget-container');
+      if (widgetContainer) {
+        widgetContainer.style.position = 'fixed';
+        widgetContainer.style.left = '50%';
+        widgetContainer.style.top = '50%';
+        widgetContainer.style.transform = 'translate(-50%, -50%)';
+      }
+    });
     </script>
     <!-- End of Async Drift Code -->
+    <style>
+    /* Optional: Adjust widget appearance */
+    .drift-widget-container {
+        z-index: 9999; /* Ensure the widget appears above other content */
+        /* Add any additional styling here */
+    }
+    </style>
 </head>
 <body>
     <h1>Welcome to My Website</h1>
