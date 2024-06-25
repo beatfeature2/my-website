@@ -3,25 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website with ConvAI Chatbot</title>
+    <title>Convai Chatbot on GitHub Pages</title>
+    <!-- Convai-Web-SDK Scripts -->
+    <script src="https://cdn.convai.dev/web-sdk/latest/convai-web-sdk.min.js"></script>
 </head>
 <body>
     <h1>Welcome to My Website</h1>
-    <p>This is a simple webpage with ConvAI chatbot integrated.</p>
+    <p>This is a simple webpage with Convai chatbot integrated.</p>
     
-    <!-- Placeholder for ConvAI Chat UI -->
+    <!-- Placeholder for Convai Chat UI -->
     <div id="convai-chat-ui"></div>
     
-    <!-- ConvAI Web Plugin Script -->
-    <script src="https://cdn.convai.dev/web-plugin/latest/convai-web-plugin.min.js"></script>
-    
-    <!-- Initialize ConvAI Web Plugin -->
+    <!-- Convai-Web-SDK Initialization Script -->
     <script>
-    ConvaiPlugin.initialize({
-        apiKey: 'b4907fda5cda0e2d18cec936844629c5'  // Replace with your ConvAI API key
-        // Additional configuration options as needed
+    // Initiate Convai-Web-SDK client
+    const convaiClient = new ConvaiClient({
+        apiKey: 'b4907fda5cda0e2d18cec936844629c5',   // Replace with your ConvAI API key
+        characterId: '2fc32348-95cc-11ed-83e6-42010a80000d',  // Replace with your Character ID
+        enableAudio: false,  // Set to true if you want audio support
+        sessionId: 'unique_session_id'  // Optional: Set a session ID for session management
     });
+
+    // Set response callback for handling responses
+    convaiClient.setResponseCallback((response) => {
+        // Handle response as needed
+        console.log('Received response:', response);
+    });
+
+    // Function to send text input to the chatbot
+    function sendTextToConvai(text) {
+        convaiClient.sendTextChunk(text);
+    }
+
+    // Example usage: Sending initial message
+    sendTextToConvai("Hello, how can I help you today?");
+
+    // You can add more customization and interaction logic here
     </script>
 </body>
 </html>
-
