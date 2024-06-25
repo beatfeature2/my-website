@@ -29,37 +29,18 @@
       }
     }();
     drift.SNIPPET_VERSION = '0.3.1';
-    drift.load('your_drift_id');
+    drift.load('6icw4aurbfi8');
     
     // Drift customization
     drift.on('ready', function(api) {
-      // Always show the widget
+      // Show the widget
       api.widget.show();
-      
-      // Enlarge the widget
-      api.widget.enlarge();
-      
-      // Center the widget
-      var widgetElement = document.querySelector('.drift-widget-container');
-      if (widgetElement) {
-        widgetElement.style.position = 'fixed';
-        widgetElement.style.left = '50%';
-        widgetElement.style.top = '50%';
-        widgetElement.style.transform = 'translate(-50%, -50%)';
-      }
     });
     </script>
     <!-- End of Async Drift Code -->
-    <style>
-    /* Optional: Adjust widget appearance */
-    .drift-widget-container {
-        z-index: 9999; /* Ensure the widget appears above other content */
-    }
-    </style>
 </head>
 <body>
     <h1>Welcome to My Website</h1>
     <p>This is a simple webpage with Drift chatbot integrated.</p>
 </body>
 </html>
-
